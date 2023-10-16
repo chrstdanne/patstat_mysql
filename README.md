@@ -11,5 +11,5 @@ Instructions
 - Run `02_import_data_files.sql` to import the data. This may take some time. You may want to comment out unneeded tables.
 - Run `03_row_counts.sql` to check if the row counts match the ones reported by PATSTAT.
 - Run `04_indexation.sql` to create indices.
-- Note that the tables currently do not contain any foreign keys. I will add those later
+- Note that the tables currently do not contain any foreign keys. I will add those at a later stage. 
  
