@@ -1,13 +1,13 @@
 --- create DB and generate tables ---
 -- cdanne@diw-econ.de
--- 2023-10-10
+-- 2025-01-22
 
 --- CREATE DATABASE ---
-CREATE DATABASE patstat2023a;
-ALTER DATABASE patstat2023a CHARACTER SET utf8 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE patstat2024b;
+ALTER DATABASE patstat2024b CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 
 --- CHANGE DB ---
-USE patstat2023a;
+USE patstat2024b;
 
 --- CREATE TABLES ---
 CREATE TABLE tls201_appln (
@@ -17,6 +17,7 @@ CREATE TABLE tls201_appln (
     appln_kind CHAR(2) NOT NULL DEFAULT '  ',
     appln_filing_date DATE NOT NULL DEFAULT '9999-12-31',
     appln_filing_year SMALLINT NOT NULL DEFAULT 9999,
+    appln_nr_epodoc VARCHAR(20)  NOT NULL DEFAULT '',
     appln_nr_original VARCHAR(100) NOT NULL DEFAULT '',
     ipr_type CHAR(2) NOT NULL DEFAULT '',
     receiving_office CHAR(2) NOT NULL DEFAULT '',
@@ -108,7 +109,7 @@ CREATE TABLE tls209_appln_ipc (
 
 CREATE TABLE tls210_appln_n_cls (
     appln_id INT NOT NULL DEFAULT 0,
-    nat_class_symbol NVARCHAR(15) NOT NULL DEFAULT '',
+    nat_class_symbol VARCHAR(15) NOT NULL DEFAULT '',
     PRIMARY KEY (appln_id, nat_class_symbol)
 );
 
@@ -304,14 +305,18 @@ CREATE TABLE  tls231_inpadoc_legal_event (
     PRIMARY KEY (event_id)
 );
 
-CREATE TABLE tls803_legal_event_code (
-    event_auth CHAR(2) NOT NULL DEFAULT '',
-    event_code VARCHAR(4) NOT NULL DEFAULT '',
-    event_descr VARCHAR(250) NOT NULL DEFAULT '',
-    event_descr_orig VARCHAR(250) NOT NULL DEFAULT '',
-    event_category_code CHAR(1) NOT NULL DEFAULT '',
-    event_category_title VARCHAR(100) NOT NULL DEFAULT '',
-    PRIMARY KEY (event_auth, event_code)
+
+CREATE TABLE tls801_country (
+    ctry_code CHAR(2) NOT NULL DEFAULT '',
+    iso_alpha3 VARCHAR(3) NOT NULL DEFAULT '',
+    st3_name VARCHAR(100) NOT NULL DEFAULT '',
+    organisation_flag VARCHAR(1) NOT NULL DEFAULT '',
+    continent CHAR(25) NOT NULL DEFAULT '',
+    eu_member CHAR(1) NOT NULL DEFAULT '',
+    epo_member CHAR(1) NOT NULL DEFAULT (''),
+	oecd_member CHAR(1) NOT NULL DEFAULT (''),
+	discontinued CHAR(1) NOT NULL DEFAULT (''),
+    PRIMARY KEY (ctry_code)
 );
 
 CREATE TABLE tls803_legal_event_code (
@@ -345,7 +350,7 @@ CREATE TABLE tls902_ipc_nace2 (
 CREATE TABLE tls904_nuts (
     nuts VARCHAR(5) NOT NULL DEFAULT '',
     nuts_level TINYINT NOT NULL DEFAULT 0,
-    nuts_label NVARCHAR(250) NOT NULL DEFAULT '',
+    nuts_label VARCHAR(250) NOT NULL DEFAULT '',
     PRIMARY KEY (nuts)
 );
 

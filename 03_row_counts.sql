@@ -1,6 +1,6 @@
 SELECT 'tls201_appln Count:', count(*) FROM tls201_appln;
 SELECT 'tls202_appln_title Count:', count(*) FROM tls202_appln_title;
--- SELECT 'tls203_appln_abstr Count:', count(*) FROM tls203_appln_abstr;
+--- SELECT 'tls203_appln_abstr Count:', count(*) FROM tls203_appln_abstr;
 SELECT 'tls204_appln_prior Count:', count(*) FROM tls204_appln_prior;
 SELECT 'tls205_tech_rel Count:', count(*) FROM tls205_tech_rel;
 SELECT 'tls206_person Count:', count(*) FROM tls206_person;
@@ -20,7 +20,7 @@ SELECT 'tls227_pers_publn Count:', count(*) FROM tls227_pers_publn;
 SELECT 'tls228_docdb_fam_citn Count:', count(*) FROM tls228_docdb_fam_citn;
 SELECT 'tls229_appln_nace2 Count:', count(*) FROM tls229_appln_nace2;
 SELECT 'tls230_appln_techn_field Count:', count(*) FROM tls230_appln_techn_field;
-SELECT 'tls231_inpadoc_legal_event Count:', count(*) FROM tls231_inpadoc_legal_event;
+--- SELECT 'tls231_inpadoc_legal_event Count:', count(*) FROM tls231_inpadoc_legal_event;
 SELECT 'tls801_country Count:', count(*) FROM tls801_country;
 SELECT 'tls803_legal_event_code Count:', count(*) FROM tls803_legal_event_code;
 SELECT 'tls901_techn_field_ipc Count:', count(*) FROM tls901_techn_field_ipc;
